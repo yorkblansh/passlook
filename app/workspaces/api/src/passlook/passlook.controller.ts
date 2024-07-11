@@ -1,21 +1,16 @@
-import { Body, Controller, Get, Post } from '@nestjs/common'
-import { AppService } from './app.service'
+import { Controller, Get, Post, Body } from '@nestjs/common'
+import { PrismaService } from '../../prisma/prisma.service'
 import { pipe } from 'fp-ts/lib/function'
 import path, { join } from 'path'
-import { readFileAsync } from './utils/readFileAsync'
-import { PrismaService } from '../prisma/prisma.service'
-import { GetInfoDto } from './dto/getInfoDto'
-import { CreateInfoDto } from './dto/createInfoDto'
+import { readFileAsync } from '../utils/readFileAsync'
+import { GetInfoDto } from '../dto/getInfoDto'
+import { CreateInfoDto } from '../dto/createInfoDto'
 
-@Controller()
-export class AppController {
-	constructor(
-		private readonly appService: AppService,
-		private readonly prismaService: PrismaService,
-	) {}
+@Controller('passlook')
+export class PasslookController {
+	constructor(private readonly prismaService: PrismaService) {}
 
 	@Get('/')
-	// @Redirect('http://localhost/api', 301)
 	getHello() {
 		return pipe(
 			join(process.cwd(), '..', 'react', 'dist', 'index.html'),
