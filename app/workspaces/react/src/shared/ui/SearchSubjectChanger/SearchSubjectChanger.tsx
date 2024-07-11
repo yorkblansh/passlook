@@ -11,9 +11,11 @@ export interface SearchSubjectChnagerProps<S extends string> {
 export const SearchSubjectChanger = <S extends string>(
 	props: SearchSubjectChnagerProps<S>,
 ) => {
-	const [subjects, setSubjects] = useState(props.subjects)
 	const [isSelection, setIsSelection] = useState(false)
 	const [selected, setSelected] = useState(props.default)
+	const [subjects, setSubjects] = useState(
+		pipe(props.subjects, shafleWithCertainFirst(selected)),
+	)
 
 	const expandAllSelectors = () => {
 		setIsSelection(true)

@@ -9,7 +9,7 @@ const SearchPage = () => {
 	return (
 		<div>
 			ПОИСК
-			<div>по паролю</div>
+			{/* <div>по паролю</div> */}
 			<SearchBar>
 				<SearchInput />
 				<SearchSubjectChanger
@@ -42,6 +42,10 @@ export const Router = () => {
 				{
 					path: '/',
 					element: <App />,
+				},
+				{
+					path: '/create_user',
+					element,
 				},
 			])}
 		/>
