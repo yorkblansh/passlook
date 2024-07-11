@@ -1,0 +1,14 @@
+.search-subject-changer {
+	display: flex;
+	flex-direction: column;
+	background-color: aqua;
+	width: 100%;
+	height: auto;
+
+	& > button {
+	}
+
+	& > .selected {
+		background-color: aquamarine;
+	}
+}
