@@ -24,6 +24,10 @@ export class PasslookController {
 		const user = await this.prismaService.user.findMany({
 			where: {
 				...getInfoDto,
+				platform: { name: getInfoDto.platform },
+			},
+			include: {
+				platform: true,
 			},
 		})
 
@@ -32,19 +36,40 @@ export class PasslookController {
 
 	@Post('/get_all_user_info')
 	async getAllUserInfo() {
-		const users = await this.prismaService.user.findMany({})
+		const users = await this.prismaService.user.findMany({
+			include: {
+				platform: true,
+			},
+		})
 
 		return users
 	}
 
 	@Post('/create_user_info')
 	async createUserInfo(@Body() getInfoDto: CreateInfoDto) {
+		const { platform, ...rest } = getInfoDto
+
 		const createdUser = await this.prismaService.user.create({
 			data: {
-				...getInfoDto,
+				platform: {
+					connectOrCreate: {
+						where: { name: platform },
+						create: { name: platform },
+					},
+				},
+				...rest,
 			},
 		})
 
 		return createdUser
+	}
+
+	@Post('/create_platform')
+	createPlatform(@Body() body: { platformName: string }) {
+		this.prismaService.platform.create({
+			data: {
+				name: body.platformName,
+			},
+		})
 	}
 }

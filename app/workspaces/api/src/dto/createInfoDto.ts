@@ -13,8 +13,8 @@ export class CreateInfoDto {
 	department: string
 
 	@IsString()
-	@ApiProperty({ required: false, nullable: true })
-	@IsOptional()
+	@ApiProperty({ required: true, nullable: false })
+	// @IsOptional()
 	email: string
 
 	@IsString()

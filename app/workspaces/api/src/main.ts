@@ -9,7 +9,7 @@ async function bootstrap() {
 	const app = await NestFactory.create(AppModule)
 
 	const config = new DocumentBuilder()
-		.setTitle('index.pdf')
+		.setTitle('passlook_api')
 		.setDescription('API description')
 		.setVersion('0.1')
 		.addTag('genpdf')

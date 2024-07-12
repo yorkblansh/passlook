@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './SearchSubjectChanger.scss'
-import { shafleWithCertainFirst } from '../../../utils/shafleWithCertainFirst'
 import { pipe } from 'fp-ts/es6/function'
+import { shafleWithCertainFirst } from '../../../../utils/shafleWithCertainFirst'
 
 export interface SearchSubjectChnagerProps<S extends string> {
 	subjects: S[]

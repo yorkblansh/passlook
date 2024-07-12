@@ -1,31 +1,8 @@
 import _ from 'lodash'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-import { SearchInput } from './shared/ui/SearchInput/SearchInput'
 import './App.scss'
-import { SearchSubjectChanger } from './shared/ui/SearchSubjectChanger/SearchSubjectChanger'
-import { SearchBar } from './shared/ui/SearchBar/SearchBar'
-
-const SearchPage = () => {
-	return (
-		<div>
-			ПОИСК
-			{/* <div>по паролю</div> */}
-			<SearchBar>
-				<SearchInput />
-				<SearchSubjectChanger
-					subjects={[
-						'по паролю',
-						'по email',
-						'по ФИО',
-						'по должности',
-						'по отделу',
-					]}
-					default="по email"
-				/>
-			</SearchBar>
-		</div>
-	)
-}
+import { SearchPage } from './pages/SearchPage/SearchPage'
+import { CreateInfoPage } from './pages/CreatePage/CreateInfoPage'
 
 const App = () => {
 	return (
@@ -45,7 +22,7 @@ export const Router = () => {
 				},
 				{
 					path: '/create_user',
-					element,
+					element: <CreateInfoPage />,
 				},
 			])}
 		/>

@@ -24,32 +24,32 @@ export class AppController {
 		)
 	}
 
-	@Post('/get_user_info')
-	async getUserInfo(@Body() getInfoDto: GetInfoDto) {
-		const user = await this.prismaService.user.findMany({
-			where: {
-				...getInfoDto,
-			},
-		})
+	// @Post('/get_user_info')
+	// async getUserInfo(@Body() getInfoDto: GetInfoDto) {
+	// 	const user = await this.prismaService.user.findMany({
+	// 		where: {
+	// 			...getInfoDto,
+	// 		},
+	// 	})
 
-		return user
-	}
+	// 	return user
+	// }
 
-	@Post('/get_all_user_info')
-	async getAllUserInfo() {
-		const users = await this.prismaService.user.findMany({})
+	// @Post('/get_all_user_info')
+	// async getAllUserInfo() {
+	// 	const users = await this.prismaService.user.findMany({})
 
-		return users
-	}
+	// 	return users
+	// }
 
-	@Post('/create_user_info')
-	async createUserInfo(@Body() getInfoDto: CreateInfoDto) {
-		const createdUser = await this.prismaService.user.create({
-			data: {
-				...getInfoDto,
-			},
-		})
+	// @Post('/create_user_info')
+	// async createUserInfo(@Body() getInfoDto: CreateInfoDto) {
+	// 	const createdUser = await this.prismaService.user.create({
+	// 		data: {
+	// 			...getInfoDto,
+	// 		},
+	// 	})
 
-		return createdUser
-	}
+	// 	return createdUser
+	// }
 }

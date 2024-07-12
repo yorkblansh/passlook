@@ -1,7 +1,7 @@
-import { serverIP } from '../utils/serverIP'
-import type { GetInfoDto } from '../../../api/src/dto/getInfoDto'
+import { CreateInfoDto } from '../../../../../api/src/dto/createInfoDto'
+import { serverIP } from '../../../utils/serverIP'
 
-export const getAllUserInfo = async (props: GetInfoDto) => {
+export const createUserInfo = async (props: CreateInfoDto) => {
 	const {
 		appPassword,
 		department,
